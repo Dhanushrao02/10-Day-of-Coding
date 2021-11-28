@@ -1,24 +1,26 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
-int main() {  
-    int N; 
-    cin >> N; 
-    int i, j; 
-    int sumdiag1 = 0; 
-    int sumdiag2 = 0; 
-    for(i = 0; i < N; i++){
-        for(j = 0; j< N; j++)
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,a[100][100],i,j,f=0,s=0,dif;
+    printf("enter the order of a matrix:\n");
+    scanf("%d",&n);
+    printf("enter the elements of a matrix:\n");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
         {
-           int no; 
-           cin >> no; 
-           if(i == j)
-               sumdiag1 += no; 
-           if(i+j == N-1)
-              sumdiag2 += no; 
+            scanf("%d",&a[i][j]);
+            if(i==j)
+            f=f+a[i][j];
+            if(i==(n-j-1))
+            s=s+a[i][j];
         }
     }
-    cout << abs(sumdiag1 - sumdiag2);
+    dif=abs(f-s);
+    printf("%d",dif);
     return 0;
 }
